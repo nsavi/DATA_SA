@@ -1,0 +1,60 @@
+Consider the following infix expression
+      b $ a $ a # c @ d & e $ a ^ f 
+Where ‘$’ means addition, ‘#’ means multiplication, ‘@’ means division and ‘&’ means subtraction.
+(i)	Convert the given infix expression into postfix expression using stack.(5 Marks)
+
+To convert an infix expression to postfix expression, we follow the below steps:
+
+Create an empty stack and an empty postfix expression string.
+Traverse the infix expression from left to right.
+If the current character is an operand (a letter), append it to the postfix expression.
+If the current character is an operator, then do the following:
+Pop all the operators from the stack that have higher or equal precedence than the current operator, and append them to the postfix expression.
+Push the current operator onto the stack.
+After traversing the infix expression, pop all the remaining operators from the stack and append them to the postfix expression.
+Using the above steps, let's convert the given infix expression to postfix expression:
+
+Infix expression: b $ a $ a # c @ d & e $ a ^ f
+
+Input	Stack	Output
+b		b
+$	$	
+a	$	ba
+$	$	ba$
+a	$	ba$a
+#	#	ba$a$
+c	#	ba$a$c
+@	@	ba$a$c#
+d	@	ba$a$c#d
+&	&	ba$a$c#d@e&
+e	&	ba$a$c#d@e&
+$	$	ba$a$c#d@e&$
+a	$	ba$a$c#d@e&$a
+^	^	ba$a$c#d@e&$a^
+f	^	ba$a$c#d@e&$a^f
+Thus, the postfix expression is:
+ba$a$c#d@e&$a^f^$
+
+
+
+
+nsa
+Consider the following infix expression
+      b $ a $ a # c @ d & e $ a ^ f 
+Where ‘$’ means addition, ‘#’ means multiplication, ‘@’ means division and ‘&’ means subtraction.
+put parenthesis to that infix expression 
+To put parenthesis in the infix expression, we need to follow the operator precedence and associativity rules.
+
+The order of precedence of operators is as follows:
+
+Exponentiation (^)
+Multiplication (#) and Division (@)
+Addition ($) and Subtraction (&)
+In case of equal precedence, the associativity is from left to right.
+
+Using these rules, we can add parenthesis to the infix expression as follows:
+
+(b $ (a $ a)) # ((c @ d) & (e $ a)) ^ f
+
+Thus, the final infix expression with parentheses is:
+(b $ (a $ a)) # ((c @ d) & (e $ a)) ^ f
